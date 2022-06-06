@@ -1,0 +1,15 @@
+#!/usr/bin/gnuplot -persist
+
+set encoding utf8
+set term pdfcairo font "Arial,9"
+
+set out 'result/pi2.pdf'
+
+set title "Heavy traffic TCP"
+
+set style line 2
+
+set xlabel "Time (in Seconds)"
+set ylabel "Queue Length (in Packets)"
+
+plot [0:100][0:220]"tmp-pi-second-ftp.tr" using ($2):($3) with lines title "ns-2 model", 50 title "50 packets"

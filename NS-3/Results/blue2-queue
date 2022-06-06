@@ -1,0 +1,21 @@
+#!/usr/bin/gnuplot -persist
+
+# задаём текстовую кодировку,
+# тип терминала, тип и размер шрифта
+set encoding utf8
+set term pdfcairo font "Arial,9"
+
+# задаём выходной файл графика
+set out 'result/blue2-ns3.pdf'
+
+# задаём название графика
+set title "Размер очереди лёгкого TCP трафика"
+
+# задаём стиль линии
+set style line 2
+
+# подписи осей графика
+set xlabel "Время (в секундах)"
+set ylabel "Размер очереди (в пакетах)"
+
+plot [0:100][0:220]"raw/blue2-queue.plotme" using ($1):($2) with lines title "PI ns3"
